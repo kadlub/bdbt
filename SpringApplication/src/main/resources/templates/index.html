@@ -68,8 +68,11 @@
     </div>
 </div>
 
-<!--<div align="center">
-    <h1>Sales Records</h1>
+<<div align="center">
+    <h1>Oddzialy</h1>
+
+    <!-- Entry to new page -->
+    <a href="/new">Enter new Oddzial</a>
 
     <table border="1" cellpadding="10">
 
@@ -85,17 +88,17 @@
         </thead>
 
         <tbody>
-        <tr th:each="sale : ${listSale}">
-            <td th:text="${sale.id}">ID</td>
-            <td th:text="${sale.item}">Item Name</td>
-            <td th:text="${sale.quantity}">Quantity</td>
-            <td th:text="${sale.amount}">Amount</td>
+        <tr th:each="sale : ${listOddzialy}">
+            <td th:text="${Oddzialy.id}">ID</td>
+            <td th:text="${Oddzialy.item}">Item Name</td>
+            <td th:text="${Oddzialy.quantity}">Quantity</td>
+            <td th:text="${Oddzialy.amount}">Amount</td>
         </tr>
         </tbody>
 
     </table>
 
-</div>-->
+</div>
 
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>

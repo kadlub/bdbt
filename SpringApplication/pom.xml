@@ -47,6 +47,19 @@
 
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-jdbc</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>com.oracle</groupId>
+			<artifactId>ojdbc11</artifactId>
+			<version>1.0</version>
+			<scope>system</scope>
+			<systemPath>C:/Users/kubak/OneDrive/Pulpit/bdbt/ojdbc11.jar</systemPath>
+		</dependency>
+
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
