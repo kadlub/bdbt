@@ -4,7 +4,23 @@
     <meta charset="UTF-8"/>
     <title>Welcome Page</title>
 
-    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/cs  s/bootstrap.min.css} "/>
+
+    <style>
+        .button {
+  border: none;
+  color: white;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  font-size: 16px;
+  margin: 4px 2px;
+  cursor: pointer;
+}
+
+.button1 {background-color: #87DBF3;}
+    </style>
 
 </head>
 
@@ -64,40 +80,14 @@
                 upper right corner.
             </div>
 
+            <div>
+
+                <a th:href = "@{/oddzialy}"><button class="button button1">Oddzialy</button></a>
+
+            </div>
+
         </div>
     </div>
-</div>
-
-<<div align="center">
-    <h1>Oddzialy</h1>
-
-    <!-- Entry to new page -->
-    <a href="/new">Enter new Oddzial</a>
-
-    <table border="1" cellpadding="10">
-
-        <thead>
-        <tr>
-            <th>ID</th>
-            <th>Item Name</th>
-            <th>Quantity</th>
-            <th>Amount</th>
-            <th>Action</th>
-
-        </tr>
-        </thead>
-
-        <tbody>
-        <tr th:each="sale : ${listOddzialy}">
-            <td th:text="${Oddzialy.id}">ID</td>
-            <td th:text="${Oddzialy.item}">Item Name</td>
-            <td th:text="${Oddzialy.quantity}">Quantity</td>
-            <td th:text="${Oddzialy.amount}">Amount</td>
-        </tr>
-        </tbody>
-
-    </table>
-
 </div>
 
 

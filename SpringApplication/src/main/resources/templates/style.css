@@ -1,0 +1,401 @@
+body{
+    font-family: Verdana,Arial,sans-serif;
+    font-style: normal;
+}
+
+h2{
+   font-family: Verdana,Arial,sans-serif;
+   font-style: normal;
+   font-weight: 400;
+   line-height: 1.5;
+   font-size: 28px;
+   color: #6232C7;
+   }
+
+h3{
+   font-size: 20px;
+   }
+
+.aktualnosci{
+    /* Rectangle 24 */
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 360px;
+    height: 380px;
+    left: 217px;
+    top: 670px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+    border-radius: 5%;
+
+    z-index: 2;
+    }
+
+.fiolet1{
+    /* Rectangle 23 */
+
+    position: absolute;
+    width: 360px;
+    height: 378px;
+    left: 226px;
+    top: 681px;
+    border-radius: 5%;
+
+    background: #9066EA;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
+
+    z-index: 1;
+}
+
+
+.komunikaty{
+    /* Rectangle 22 */
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 360px;
+    height: 380px;
+    left: 775px;
+    top: 670px;
+    border-radius: 5%;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    z-index: 2;
+}
+
+.fiolet2{
+    /* Rectangle 25 */
+
+    position: absolute;
+    width: 360px;
+    height: 378px;
+    left: 784px;
+    top: 681px;
+    border-radius: 5%;
+
+    background: #9066EA;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
+
+    z-index: 1;
+}
+
+
+.zglaszanie_awarii{
+    /* Rectangle 20 */
+
+    box-sizing: border-box;
+    border-radius: 5%;
+
+    position: absolute;
+    width: 360px;
+    height: 380px;
+    left: 1333px;
+    top: 670px;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    z-index: 2;
+}
+
+
+.fiolet3{
+    /* Rectangle 27 */
+
+    position: absolute;
+    border-radius: 5%;
+    width: 360px;
+    height: 378px;
+    left: 1342px;
+    top: 681px;
+
+    background: #9066EA;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
+    z-index: 1;
+}
+
+.prosta{
+    /* Line 1 */
+
+    position: relative;
+    width: 1920px;
+    height: 0px;
+    left: 0px;
+    top: 100px;
+
+    border: 1px solid #9066EA;
+    transform: rotate(0.09deg);
+}
+
+.paneldol{
+
+    box-sizing: border-box;
+    opacity: 0.8;
+
+    position: absolute;
+    width: 1920px;
+    height: 250px;
+
+    background: #E4E4E4;
+    border: 1px solid rgba(255, 255, 255, 0.1);
+    border-radius: 2px;
+    top: 1200px;
+}
+
+img{
+    /* image 2 */
+
+    position: absolute;
+    width: 250px;
+    height: 170px;
+    left: 5px;
+    top: -30px;
+}
+
+/*login button*/
+
+.loginbutton {
+  position: absolute;
+  left: 1670px;
+  top: 15px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #9066EA;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.loginbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.loginbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.loginbutton:hover span {
+  padding-right: 25px;
+}
+
+.loginbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*edytuj button*/
+
+.edytujbutton {
+  position: absolute;
+  left: 1400px;
+  top: 15px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #9066EA;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 250px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.edytujbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.edytujbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.edytujbutton:hover span {
+  padding-right: 25px;
+}
+
+.edytujbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+/*login button*/
+
+.wylogujbutton {
+  position: absolute;
+  left: 1670px;
+  top: 15px;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #9066EA;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  font-size: 28px;
+  padding: 20px;
+  width: 200px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.wylogujbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.wylogujbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.wylogujbutton:hover span {
+  padding-right: 25px;
+}
+
+.wylogujbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
+
+
+.slider{
+  position: absolute;
+  width: 1200px;
+  height: 500px;
+  border-radius: 10px;
+  overflow: hidden;
+  left: 330px;
+  top: 180px;
+}
+
+.slides{
+  width: 500%;
+  height: 300px;
+  display: flex;
+  border-radius: 5%;
+}
+
+.slides input{
+  display: none;
+}
+
+.slide{
+  width: 20%;
+  transition: 2s;
+}
+
+.slide img{
+  width: 1200px;
+  height: 400px;
+}
+
+/*css for manual slide navigation*/
+
+.navigation-manual{
+  position: absolute;
+  width: 1200px;
+  margin-top: 100px;
+  display: flex;
+  justify-content: center;
+}
+
+.manual-btn{
+  border: 2px solid #9066EA;
+  padding: 5px;
+  border-radius: 10px;
+  cursor: pointer;
+  transition: 1s;
+}
+
+.manual-btn:not(:last-child){
+  margin-right: 40px;
+}
+
+.manual-btn:hover{
+  background: #9066EA;
+}
+
+#radio1:checked ~ .first{
+  margin-left: 0;
+}
+
+#radio2:checked ~ .first{
+  margin-left: -20%;
+}
+
+#radio3:checked ~ .first{
+  margin-left: -40%;
+}
+
+
+/*css for automatic navigation*/
+
+.navigation-auto{
+  position: absolute;
+  display: flex;
+  width: 800px;
+  justify-content: center;
+  margin-top: 300px;
+}*/
+
+.navigation-auto div{
+  border: 2px solid #9066EA;
+  padding: 5px;
+  border-radius: 10px;
+  transition: 1s;
+}
+
+.navigation-auto div:not(:last-child){
+  margin-right: 40px;
+}
+
+#radio1:checked ~ .navigation-auto .auto-btn1{
+  background: #9066EA;
+}
+
+#radio2:checked ~ .navigation-auto .auto-btn2{
+  background: #9066EA;
+}
+
+#radio3:checked ~ .navigation-auto .auto-btn3{
+  background: #9066EA;
+}

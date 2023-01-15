@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Main demo</title>
+    <link rel="stylesheet" href="style.css" />
+    <script src="script.js"></script>
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<!--<body bgcolor= ADABAE>-->
+<body>
+
+<img src="eneba-logo.png" alt="logo">
+
+<div class="prosta"></div>
+
+<div>
+    <a href = "login.html"><button class="loginbutton" style="vertical-align:middle"><span>Login</span></button></a>
+</div>
+
+<!--image slider start-->
+<div class="slider">
+    <div class="slides">
+        <!--radio buttons start-->
+        <input type="radio" name="radio-btn" id="radio1">
+        <input type="radio" name="radio-btn" id="radio2">
+        <input type="radio" name="radio-btn" id="radio3">
+        <!--radio buttons end-->
+        <!--slide images start-->
+        <div class="slide first">
+            <img src="jd.png" alt="instalacja elektryczna">
+        </div>
+        <div class="slide">
+            <img src="fotowoltaika.jpg" alt="fotowoltaika">
+        </div>
+        <div class="slide">
+            <img src="budowa.jpg" alt="budowa">
+        </div>
+        <!--slide images end-->
+        <!--automatic navigation start-->
+        <div class="navigation-auto">
+            <div class="auto-btn1"></div>
+            <div class="auto-btn2"></div>
+            <div class="auto-btn3"></div>
+        </div>
+        <!--automatic navigation end-->
+    </div>
+    <!--manual navigation start-->
+    <div class="navigation-manual">
+        <label for="radio1" class="manual-btn"></label>
+        <label for="radio2" class="manual-btn"></label>
+        <label for="radio3" class="manual-btn"></label>
+    </div>
+    <!--manual navigation end-->
+</div>
+<!--image slider end-->
+
+<script type="text/javascript">
+    var counter = 1;
+    setInterval(function(){
+      document.getElementById('radio' + counter).checked = true;
+      counter++;
+      if(counter > 3){
+        counter = 1;
+      }
+    }, 5000);
+</script>
+
+
+<div class="aktualnosci">
+    <h2><center>Aktualności</center></h2>
+    <!--<ul>
+        <li>
+            <h3><b>Taryfy na 2023 rok</b></h3>
+            Uprzejmie informujemy, że wraz z dniem 01.01.2023 ze względu na powrót do swojej dawnej wartości podatku VAT za prąd, ceny nie ulegają zmianie.
+        </li>
+
+        <li>
+            <h3><b>Współpraca między firmą ENEBA, a Reprezentacją Polski w piłce nożnej.</b></h3>
+            Wraz z dniem 01.01.2023 przedłużeniu uległ kontrakt sponsorski między Polskim Związkiem Piłki Nożnej, a dostawcą energii ENEBA
+        </li>
+    </ul>-->
+</div>
+
+<div class="fiolet1"></div>
+<div class="fiolet2"></div>
+<div class="fiolet3"></div>
+
+<div class="komunikaty">
+    <h2><center>Komunikaty</center></h2>
+    <ul>
+        <li>
+            <h3><b>Rządowa tarcza energetyczna</b></h3>
+            <p>
+                W związku z wejściem w życie ustawy z dnia 07 października 2022 r.
+                o szczególnych rozwiązaniach służących ochronie odbiorców energii
+                elektrycznej w 2023 roku w związku z sytuacją na rynku energii elektrycznej...
+                <a href="https://energa-operator.pl/aktualnosci/784513/rzadowa-tarcza-energetyczna-2022-12-22"> Więcej</a>
+            </p>
+        </li>
+    </ul>
+</div>
+
+<div class="zglaszanie_awarii">
+    <h2><center>Zgłaszanie awarii</center></h2>
+    <div>
+        <!--<p><img src = "telefon.jpg" width = "30px" height = "30px">991</p>
+        <p><img src = "mail.jpg" width = "30px" height = "30px">awaria@eneba.com</p>
+        <p><img src = "sms.jpg" width = "30px" height = "30px">920391035 sms o treści "AWARIA"</p>-->
+    </div>
+</div>
+
+<div class="paneldol">
+    kontakt
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

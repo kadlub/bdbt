@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Oddzialy</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+</head>
+<body>
+
+<div align="center">
+    <h1>Oddzialy</h1>
+
+    <!--Entry to new page -->
+    <a href="/new">Enter new Oddzial</a>
+
+    <table border="1" cellpadding="10">
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Data_zalozenia</th>
+            <th>Dostawca</th>
+            <th>Adres</th>
+
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each="sale : ${listOddzialy}">
+            <td th:text="${Oddzialy.id}">ID</td>
+            <td th:text="${Oddzialy.data_zalozenia}">Data_zalozenia</td>
+            <td th:text="${Oddzialy.dostawca}">Dostawca</td>
+            <td th:text="${Oddzialy.adres}">Adres</td>
+        </tr>
+        </tbody>
+
+    </table>
+
+</div>
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/script.js}"></script>
+
+</body>
+</html>

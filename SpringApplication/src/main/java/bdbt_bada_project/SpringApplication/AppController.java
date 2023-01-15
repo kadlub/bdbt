@@ -14,8 +14,8 @@ import java.util.List;
 @Configuration
 public class AppController implements WebMvcConfigurer {
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/index").setViewName("index");
-        registry.addViewController("/").setViewName("index");
+        registry.addViewController("/main-demo").setViewName("main-demo");
+        registry.addViewController("/").setViewName("main-demo");
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/login").setViewName("login");
 
@@ -43,7 +43,7 @@ public class AppController implements WebMvcConfigurer {
             }
             else
             {
-                return "redirect:/index";
+                return "redirect:/main-demo";
             }
         }
     }
@@ -65,7 +65,7 @@ public class AppController implements WebMvcConfigurer {
     {
         List<Oddzialy> listOddzialy = dao.list();
         model.addAttribute("listOddzialy", listOddzialy);
-        return "index";
+        return "main-demo";
     }
 
     @RequestMapping("/new")
