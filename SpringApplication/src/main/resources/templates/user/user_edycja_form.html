@@ -1,0 +1,96 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+  <meta charset="UTF-8"/>
+  <title>Edytowanie klienta</title>
+
+  <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+  <link th:rel="stylesheet" th:href="@{/css/main.css} "/>
+
+</head>
+<body>
+<!-- Navigation -->
+<nav th:replace="fragments/nav :: nav('My-data')"></nav>
+<div class="container">
+  <div class="row">
+    <div class="col-md-12 mt-5">
+      <div align="center">
+        <h1 sec:authorize="hasRole('ADMIN')">Edytuj pracownika</h1>
+        <h1 sec:authorize="hasRole('USER')">Edytuj swoje dane</h1>
+
+        <form action="#" th:action="@{/klienci/update}" th:object="${klient}" method="post">
+          <table>
+            <tr>
+              <th colspan="2">
+                <h3>Dane osobowe:</h3>
+              </th>
+            </tr>
+            <tr>
+              <td>Numer klienta:</td>
+              <td><input type="number" th:field="*{klient.getId_klienta()}" readonly="readonly"></td>
+            </tr>
+            <tr>
+              <td>Imie:</td>
+              <td><input type="text" th:field="*{klient.ime}" required></td>
+            </tr>
+            <tr>
+              <td>Nazwisko:</td>
+              <td><input type="text" th:field="*{klient.nazwisko}" required></td>
+            </tr>
+            <tr>
+              <td>Nr_telefonu</td>
+              <td><input type="text" th:field="*{klient.nr_telefonu}" required></td>
+            </tr>
+            <tr>
+              <td>Email</td>
+              <td><input type="text" th:field="*{klient.Email}" required></td>
+            </tr>
+            <tr>
+              <td>Zuzycie pradu</td>
+              <td><input type="number" th:field="*{kient.zuzycie_pradu}" required></td>
+            </tr>
+            <tr>
+              <td>Data zawarcia umowy</td>
+              <td><input type="date" th:field="*{klient.data_zawarcia_umowy}" required></td>
+            </tr>
+            <tr>
+              <td>Data zakonczenia umowy</td>
+              <td><input type="date" th:field="*{klient.data_zakonczenia_umowy}" readonly></td>
+            </tr>
+            <tr>
+              <td>Miasto</td>
+              <td><input type="text" th:field="*{klient.adres.miasto}" required></td>
+            </tr>
+            <tr>
+              <td>Ulica</td>
+              <td><input type="text" th:field="*{klient.adres.ulica}" required></td>
+            </tr>
+            <tr>
+              <td>Nr. lokalu</td>
+              <td><input type="number" th:field="*{klient.adres.nr_lokalu}" required></td>
+            </tr>
+            <tr>
+              <td>Id poczty</td>
+              <td><input type="number" th:field="*{klient.adres.id_poczty}" required></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="submit-new">
+                <button type="submit">zapisz</button>
+              </td>
+            </tr>
+          </table>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script th:src="@{/js/pesel_handler.js}"></script>
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+<script th:src="@{/js/table_headers.js}"></script>
+
+</body>
+</html>

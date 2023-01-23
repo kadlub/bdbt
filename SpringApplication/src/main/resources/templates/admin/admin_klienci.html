@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>User</title>
+    <link th:rel="stylesheet" th:href="@{/css/style.css}" />
+    <script th:src="@{script.js}"></script>
+    <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
+    <!--<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+</head>
+<!--<body bgcolor= ADABAE>-->
+<th>ID</th>
+
+<body>
+
+<img th:src="@{/img/eneba-logo.png}" alt="logo">
+
+<div class="prosta"></div>
+
+<div>
+    <a th:href = "@{/index}"><button class="wylogujbutton" style="vertical-align:middle"><span>Wyloguj</span></button></a>
+    <a th:href = "@{/user/user}"><button class="mainbutton" style="vertical-align:middle"><span>Strona główna</span></button></a>
+</div>
+
+<div align="center" style="margin-top: 100px;">
+    <h1>Klienci</h1>
+
+    <table border = "1" cellpadding = "10">
+
+        <thead>
+        <tr>
+            <th>ID</th>
+            <th>Imie</th>
+            <th>Nazwisko</th>
+            <th>Nr_telefonu</th>
+            <th>Email</th>
+            <th>Zuzycie_pradu</th>
+            <th>Data_zawarcia_umowy</th>
+            <th>Data_zakonczenia_umowy</th>
+            <th>Adres</th>
+            <th>Miasto</th>
+            <th>Ulica</th>
+            <th>Nr. lokalu</th>
+            <th>Id_poczty</th>
+        </tr>
+        </thead>
+
+        <tbody>
+        <tr th:each = "klient : ${klientList}">
+            <td th:text="${klient.getId()}">ID</td>
+            <td th:text="${klient.imie}">Imie</td>
+            <td th:text="${klient.nazwisko}">Nazwisko</td>
+            <td th:text="${klient.nr_telefonu}">Nr_telefonu</td>
+            <td th:text="${klient.Email}">Email</td>
+            <td th:text="${klient.zuzycie_pradu}">Zuzycie_pradu</td>
+            <td th:text="${klient.data_zawarcia_umowy}">Data_zawarcia_umowy</td>
+            <td th:text="${klient.data_zakonczenia_umowy}">Data_zakonczenia_umowy</td>
+            <td th:text="${klient.id_adresu}">Adres</td>
+            <td th:text="${klient.adres.miasto}">Miasto</td>
+            <td th:text="${klient.adres.ulica}">Ulica</td>
+            <td th:text="${klient.adres.nr_lokalu}">Nr.lokalu</td>
+            <td th:text="${klient.adres.id_poczty}">Id_poczty</td>
+        </tr>
+
+        </tbody>
+
+    </table>
+
+</div>
+
+</body>
+</html>

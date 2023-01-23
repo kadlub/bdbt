@@ -3,20 +3,20 @@
 <head>
     <meta charset="UTF-8">
     <title>Main demo</title>
-    <link rel="stylesheet" href="style.css" />
-    <script src="script.js"></script>
+    <link th:rel="stylesheet" href="@{css/style.css}" />
+    <script th:src="@{/js/script.js}"></script>
     <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
     <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <!--<body bgcolor= ADABAE>-->
 <body>
 
-<img src="eneba-logo.png" alt="logo">
+<img th:src="@{/img/eneba-logo.png}" alt="logo">
 
 <div class="prosta"></div>
 
 <div>
-    <a href = "login.html"><button class="loginbutton" style="vertical-align:middle"><span>Login</span></button></a>
+    <a href = "user.html"><button class="loginbutton" style="vertical-align:middle"><span>Login</span></button></a>
 </div>
 
 <!--image slider start-->
@@ -29,13 +29,13 @@
         <!--radio buttons end-->
         <!--slide images start-->
         <div class="slide first">
-            <img src="jd.png" alt="instalacja elektryczna">
+            <img th:src="@{/img/budowa.jpg}" alt="">
         </div>
         <div class="slide">
-            <img src="fotowoltaika.jpg" alt="fotowoltaika">
+            <img th:src="@{fotowoltaika.jpg}" alt="">
         </div>
         <div class="slide">
-            <img src="budowa.jpg" alt="budowa">
+            <img th:src="@{/im/jd.png}" alt="">
         </div>
         <!--slide images end-->
         <!--automatic navigation start-->
@@ -65,7 +65,7 @@
         counter = 1;
       }
     }, 5000);
-</script>
+    </script>
 
 
 <div class="aktualnosci">

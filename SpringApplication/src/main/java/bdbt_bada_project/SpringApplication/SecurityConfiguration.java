@@ -1,4 +1,5 @@
 package bdbt_bada_project.SpringApplication;
+
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
@@ -7,6 +8,7 @@ import org.springframework.security.config.annotation.web.configuration.EnableWe
 import org.springframework.security.config.annotation.web.configuration.WebSecurityConfigurerAdapter;
 import org.springframework.security.crypto.password.NoOpPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -38,7 +40,14 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/resources/static/**").permitAll()
                 .antMatchers("/main").authenticated()
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
-                .antMatchers("/main_user").access("hasRole('USER')")
+                .antMatchers("/user").access("hasRole('USER')")
+                .antMatchers("/klienci").authenticated()
+                .antMatchers("/admin_klienci").access("hasRole('ADMIN')")
+                .antMatchers("/user/user_edit/{userId}").access("@userSecurity.hasUserId(authentication, #userId) or hasRole('ADMIN')")
+                .antMatchers("/klienci/update").authenticated()
+                .antMatchers("/klienci/delete/**").access("hasRole('ADMIN')")
+                .antMatchers("/klienci/new").access("hasRole('ADMIN')")
+                .antMatchers("/klienci/save").access("hasRole('ADMIN')")
                 .and()
                 .formLogin()
                 .loginPage("/login")
@@ -48,6 +57,7 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .logout()
                 .logoutUrl("/index")
                 .logoutSuccessUrl("/index")
+                .logoutRequestMatcher(new AntPathRequestMatcher("/logout", "GET"))
                 .permitAll();
     }
 }

@@ -4,7 +4,7 @@ import java.util.Date;
 
 public class Klienci {
 
-    private int id;
+    private int id_klienta;
     private String imie;
     private String nazwisko;
     private String nr_telefonu;
@@ -13,15 +13,16 @@ public class Klienci {
     private Date data_zawarcia_umowy;
     private Date data_zakonczenia_umowy;
     private int id_adresu;
+    private Adresy adres;
 
     public Klienci(){
 
     }
 
-    public Klienci(int id, String imie, String nazwisko, String nr_telefonu, String email, float zuzycie_pradu, Date data_zawarcia_umowy, Date data_zakonczenia_umowy, int id_adresu) {
+    public Klienci(int id_klienta, String imie, String nazwisko, String nr_telefonu, String email, float zuzycie_pradu, Date data_zawarcia_umowy, Date data_zakonczenia_umowy, int id_adresu) {
 
         super();
-        this.id = id;
+        this.id_klienta = id_klienta;
         this.imie = imie;
         this.nazwisko = nazwisko;
         this.nr_telefonu = nr_telefonu;
@@ -30,19 +31,26 @@ public class Klienci {
         this.data_zawarcia_umowy = data_zawarcia_umowy;
         this.data_zakonczenia_umowy = data_zakonczenia_umowy;
         this.id_adresu = id_adresu;
+        this.adres = adres;
     }
 
-    public int getId() {
-        return id;
+    public void setAdres(Adresy adres){
+        this.adres=adres;
     }
 
-    public void setId(int id) {
-        this.id = id;
+    public int getId_klienta() {
+        return id_klienta;
+    }
+
+    public void setId_klienta(int id) {
+        this.id_klienta = id;
     }
 
     public String getImie() {
         return imie;
     }
+
+    public Adresy getAdres(){return adres;}
 
     public void setImie(String imie) {
         this.imie = imie;
@@ -107,7 +115,7 @@ public class Klienci {
     @Override
     public String toString() {
         return "Klienci{" +
-                "id=" + id +
+                "id=" + id_klienta +
                 ", imie='" + imie + '\'' +
                 ", nazwisko='" + nazwisko + '\'' +
                 ", nr_telefonu='" + nr_telefonu + '\'' +

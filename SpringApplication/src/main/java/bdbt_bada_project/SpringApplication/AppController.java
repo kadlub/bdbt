@@ -2,9 +2,15 @@ package bdbt_bada_project.SpringApplication;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.security.core.annotation.AuthenticationPrincipal;
+import org.springframework.security.core.userdetails.User;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.servlet.ModelAndView;
 import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
 import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 
@@ -13,19 +19,71 @@ import java.util.List;
 
 @Configuration
 public class AppController implements WebMvcConfigurer {
+
     public void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/main-demo").setViewName("main-demo");
-        registry.addViewController("/").setViewName("main-demo");
+        registry.addViewController("/index").setViewName("index");
+        registry.addViewController("/").setViewName("index");
         registry.addViewController("/main").setViewName("main");
         registry.addViewController("/login").setViewName("login");
 
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
-        registry.addViewController("/main_user").setViewName("user/main_user");
+        registry.addViewController("/user").setViewName("user/user");
+        registry.addViewController("/user/user_edycja").setViewName("/user/user_edycja");
     }
 
     @Controller
-    public class DashboardController
-    {
+    public class DashboardController {
+
+        @RequestMapping("/user/user_edycja")
+        public String showKlienciPage(HttpServletRequest request, @AuthenticationPrincipal User user, Model model) {
+                System.out.println("kocham kube marchuta");
+                List<Klienci> klientList = daoKlient.list();
+                model.addAttribute("klientList", klientList);
+                return "/user/user_edycja";
+
+        }
+
+        @RequestMapping(value = "/user/new")
+        public String showNewKlientForm(Model model) {
+            Klienci newKlient = new Klienci();
+
+            model.addAttribute("newKlienci", newKlient);
+
+            return "user/user_edycja_form";
+        }
+
+        @RequestMapping(value = "/klienci/save", method = RequestMethod.POST)
+        public String saveKlienci(@ModelAttribute("newKlient") Klienci newKlient) {
+            daoKlient.save(newKlient);
+
+            return "redirect:/klienci";
+        }
+
+        @RequestMapping(value = "/klienci/edit/{id}")
+        public ModelAndView showEditEmployeeForm(@PathVariable(name = "id") int id) {
+            ModelAndView mav = new ModelAndView("user/user_edycja_form");
+            List<Klienci> positionList = daoKlient.list();
+            Klienci newKlienci = daoKlient.get(id);
+
+            mav.addObject("klient", newKlienci);
+
+            return mav;
+        }
+
+        @RequestMapping(value = "/klienci/update", method = RequestMethod.POST)
+        public String updateKlienci(@ModelAttribute("newKlienci") Klienci newKlienci) {
+            daoKlient.update(newKlienci);
+
+            return "redirect:/klienci";
+        }
+
+        @RequestMapping(value = "/klienci/delete/{id}")
+        public String deleteEmployee(@PathVariable(name = "id") int id) {
+            daoKlient.delete(id);
+
+            return "redirect:/employees";
+        }
+
         @RequestMapping
                 ("/main"
                 )
@@ -35,54 +93,60 @@ public class AppController implements WebMvcConfigurer {
             (request.isUserInRole
                     ("ADMIN")) {
                 return "redirect:/main_admin";
-            }
-            else if
+            } else if
             (request.isUserInRole
                             ("USER")) {
-                return "redirect:/main_user";
-            }
-            else
-            {
-                return "redirect:/main-demo";
+                return "redirect:/user";
+            } else {
+                return "redirect:/index";
             }
         }
     }
 
-    @RequestMapping(value={"/main_admin"})
+    @RequestMapping(value = {"/main_admin"})
     public String showAdminPage(Model model) {
         return "admin/main_admin";
     }
-    @RequestMapping(value={"/main_user"})
+
+    @RequestMapping(value = {"/user"})
     public String showUserPage(Model model) {
-        return "user/main_user";
+        return "user/user";
     }
 
     @Autowired
     private OddzialyDAO dao;
 
     @RequestMapping("/")
-    public String vievHomePage(Model model)
-    {
+    public String vievHomePage(Model model) {
         List<Oddzialy> listOddzialy = dao.list();
         model.addAttribute("listOddzialy", listOddzialy);
-        return "main-demo";
+        return "index";
     }
 
     @RequestMapping("/new")
-    public String showNewForm(Model model){
+    public String showNewForm(Model model) {
         Oddzialy oddzial = new Oddzialy();
         model.addAttribute("Oddzial", oddzial);
 
         return "new_form";
     }
 
+    @Autowired
+    private KlienciDAO daoKlient;
 
+    @RequestMapping("/")
+    public String viewKlient(Model model) {
+        List<Klienci> listKlienci = daoKlient.list();
+        model.addAttribute("listKlienci", listKlienci);
+        return "index";
+    }
 
+    @RequestMapping("/new")
+    public String showKlient(Model model) {
+        Klienci klient = new Klienci();
+        model.addAttribute("Klient", klient);
 
-
-
-
-
+        return "new_form";
+    }
 
 }
-
