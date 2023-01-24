@@ -47,7 +47,6 @@ public class KlienciDAO {
 
 
                     klient.setAdres(adres);
-                    System.out.println(klient.getAdres().getMiasto());
                    return klient; 
                 });
 
@@ -101,9 +100,7 @@ public class KlienciDAO {
                 "Zuzycie_pradu=:zuzycie_pradu, data_zawarcia_umowy=:data_zawarcia_umowy ," +
                 "data_zakonczenia_umowy=:data_zakonczenia_umowy,id_adresu=:id_adresu " +
                 "WHERE id_klienta=:id_klienta";
-        System.out.println(sql);
         BeanPropertySqlParameterSource param = new BeanPropertySqlParameterSource(klient);
-        System.out.println(param);
         NamedParameterJdbcTemplate template = new NamedParameterJdbcTemplate(jdbcTemplate);
 
         template.update(sql, param);

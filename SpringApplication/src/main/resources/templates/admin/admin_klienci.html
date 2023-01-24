@@ -2,11 +2,11 @@
 <html lang="en" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta charset="UTF-8">
-    <title>User</title>
+    <title>Admin</title>
     <link th:rel="stylesheet" th:href="@{/css/style.css}" />
     <script th:src="@{script.js}"></script>
     <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
-    <!--<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
 </head>
 <!--<body bgcolor= ADABAE>-->
 <th>ID</th>
@@ -19,7 +19,7 @@
 
 <div>
     <a th:href = "@{/index}"><button class="wylogujbutton" style="vertical-align:middle"><span>Wyloguj</span></button></a>
-    <a th:href = "@{/user/user}"><button class="mainbutton" style="vertical-align:middle"><span>Strona główna</span></button></a>
+    <a th:href = "@{/main_admin}"><button class="mainbutton" style="vertical-align:middle"><span>Strona główna</span></button></a>
 </div>
 
 <div align="center" style="margin-top: 100px;">
@@ -32,40 +32,73 @@
             <th>ID</th>
             <th>Imie</th>
             <th>Nazwisko</th>
-            <th>Nr_telefonu</th>
+            <th>Nr telefonu</th>
             <th>Email</th>
-            <th>Zuzycie_pradu</th>
-            <th>Data_zawarcia_umowy</th>
-            <th>Data_zakonczenia_umowy</th>
-            <th>Adres</th>
+            <th>Zuzycie pradu</th>
+            <th>Data zawarcia umowy</th>
+            <th>Data_zakonczenia umowy</th>
+            <!--th>Adres</th-->
             <th>Miasto</th>
             <th>Ulica</th>
             <th>Nr. lokalu</th>
-            <th>Id_poczty</th>
+            <th>Id poczty</th>
         </tr>
         </thead>
 
         <tbody>
         <tr th:each = "klient : ${klientList}">
-            <td th:text="${klient.getId()}">ID</td>
+            <td th:text="${klient.getId_klienta()}">ID</td>
             <td th:text="${klient.imie}">Imie</td>
             <td th:text="${klient.nazwisko}">Nazwisko</td>
-            <td th:text="${klient.nr_telefonu}">Nr_telefonu</td>
+            <td th:text="${klient.nr_telefonu}">Nr telefonu</td>
             <td th:text="${klient.Email}">Email</td>
-            <td th:text="${klient.zuzycie_pradu}">Zuzycie_pradu</td>
-            <td th:text="${klient.data_zawarcia_umowy}">Data_zawarcia_umowy</td>
-            <td th:text="${klient.data_zakonczenia_umowy}">Data_zakonczenia_umowy</td>
-            <td th:text="${klient.id_adresu}">Adres</td>
+            <td th:text="${klient.zuzycie_pradu}">Zuzycie pradu</td>
+            <td th:text="${klient.data_zawarcia_umowy}">Data zawarcia umowy</td>
+            <td th:text="${klient.data_zakonczenia_umowy}">Data zakonczenia umowy</td>
+            <!--td th:text="${klient.id_adresu}">Adres</td-->
             <td th:text="${klient.adres.miasto}">Miasto</td>
             <td th:text="${klient.adres.ulica}">Ulica</td>
             <td th:text="${klient.adres.nr_lokalu}">Nr.lokalu</td>
-            <td th:text="${klient.adres.id_poczty}">Id_poczty</td>
+            <td th:text="${klient.adres.id_poczty}">Id poczty</td>
+            <td class="actions">
+                <a th:href="@{'/klienci/edit/' + ${klient.getId_klienta}}">
+                    <span class="material-symbols-outlined">edit</span>
+                </a>
+                <a th:href="@{'klienci/delete/' + ${klient.getId_klienta}}">
+                    <span class="material-symbols-outlined">delete</span>
+                </a>
+            </td>
         </tr>
 
         </tbody>
 
     </table>
+    <section class="add-new-employee-wrapper">
+        <a class="hero-link" href="/klienci/new">
+            <span>Dodaj nowego klienta</span>
+        </a>
+    </section>
 
+</div>
+
+<div class="modal fade" id="deletePrevention" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Czy na pewno chcesz usunąć?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Czy jesteś pewny, że chcesz usunąć ten rekord?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Tak</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Nie</button>
+            </div>
+        </div>
+    </div>
 </div>
 
 </body>

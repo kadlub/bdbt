@@ -42,12 +42,12 @@ public class SecurityConfiguration extends WebSecurityConfigurerAdapter {
                 .antMatchers("/main_admin").access("hasRole('ADMIN')")
                 .antMatchers("/user").access("hasRole('USER')")
                 .antMatchers("/klienci").authenticated()
-                .antMatchers("/admin_klienci").access("hasRole('ADMIN')")
                 .antMatchers("/user/user_edit/{userId}").access("@userSecurity.hasUserId(authentication, #userId) or hasRole('ADMIN')")
                 .antMatchers("/klienci/update").authenticated()
                 .antMatchers("/klienci/delete/**").access("hasRole('ADMIN')")
                 .antMatchers("/klienci/new").access("hasRole('ADMIN')")
                 .antMatchers("/klienci/save").access("hasRole('ADMIN')")
+
                 .and()
                 .formLogin()
                 .loginPage("/login")

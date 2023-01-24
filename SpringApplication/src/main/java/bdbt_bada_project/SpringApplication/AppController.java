@@ -28,7 +28,8 @@ public class AppController implements WebMvcConfigurer {
 
         registry.addViewController("/main_admin").setViewName("admin/main_admin");
         registry.addViewController("/user").setViewName("user/user");
-        registry.addViewController("/user/user_edycja").setViewName("/user/user_edycja");
+        registry.addViewController("/user_edycja").setViewName("/user/user_edycja");
+        registry.addViewController("/user/user_edycja_form").setViewName("/user/user_edycja_form");
     }
 
     @Controller
@@ -36,14 +37,13 @@ public class AppController implements WebMvcConfigurer {
 
         @RequestMapping("/user/user_edycja")
         public String showKlienciPage(HttpServletRequest request, @AuthenticationPrincipal User user, Model model) {
-                System.out.println("kocham kube marchuta");
                 List<Klienci> klientList = daoKlient.list();
                 model.addAttribute("klientList", klientList);
                 return "/user/user_edycja";
 
         }
 
-        @RequestMapping(value = "/user/new")
+        @RequestMapping(value = "/klienci/new")
         public String showNewKlientForm(Model model) {
             Klienci newKlient = new Klienci();
 
@@ -81,7 +81,7 @@ public class AppController implements WebMvcConfigurer {
         public String deleteEmployee(@PathVariable(name = "id") int id) {
             daoKlient.delete(id);
 
-            return "redirect:/employees";
+            return "redirect:/klienci";
         }
 
         @RequestMapping

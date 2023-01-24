@@ -6,7 +6,7 @@
     <link th:rel="stylesheet" th:href="@{/css/style.css}" />
     <script th:src="@{script.js}"></script>
     <!--<link rel="stylesheet" href="https://www.w3schools.com/w3css/4/w3.css">-->
-    <!--<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>-->
+    <!--<link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/-->
 </head>
 <!--<body bgcolor= ADABAE>-->
 <th>ID</th>
@@ -60,7 +60,16 @@
                 <td th:text="${klient.adres.ulica}">Ulica</td>
                 <td th:text="${klient.adres.nr_lokalu}">Nr.lokalu</td>
                 <td th:text="${klient.adres.id_poczty}">Id poczty</td>
+                <td class="actions">
+                    <a th:href="@{'/klient/edit/' + ${klient.getId_klienta}}">
+                        <span class="material-symbols-outlined">edit</span>
+                    </a>
+                    <a th:href="@{'/klient/delete/' + ${klient.getId_klienta}}">
+                        <span class="material-symbols-outlined">delete</span>
+                    </a>
+                </td>
             </tr>
+        </tbody>
 
         </tbody>
 

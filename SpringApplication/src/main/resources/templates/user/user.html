@@ -17,7 +17,11 @@
 
 <div>
     <a th:href = "@{/index}"><button class="wylogujbutton" style="vertical-align:middle"><span>Wyloguj</span></button></a>
-    <a th:href = "@{/user/user_edycja}"><button class="edytujbutton" style="vertical-align:middle"><span>Edytuj dane</span></button></a>
+    <a th:href = "@{/user/user_edycja}"><button class="edytujbutton" style="vertical-align:middle"><span>Moje Dane</span></button></a>
+    <li class="nav-item">
+        <a class="nav-link" th:inline="text" style="color:#9066EA;">Jesteś zalogowany jako<b
+                style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
+    </li>
 </div>
 
 <!--image slider start-->
@@ -71,17 +75,12 @@
 
 <div class="aktualnosci">
     <h2><center>Aktualności</center></h2>
-    <!--<ul>
-        <li>
-            <h3><b>Taryfy na 2023 rok</b></h3>
-            Uprzejmie informujemy, że wraz z dniem 01.01.2023 ze względu na powrót do swojej dawnej wartości podatku VAT za prąd, ceny nie ulegają zmianie.
-        </li>
-
+    <ul>
         <li>
             <h3><b>Współpraca między firmą ENEBA, a Reprezentacją Polski w piłce nożnej.</b></h3>
             Wraz z dniem 01.01.2023 przedłużeniu uległ kontrakt sponsorski między Polskim Związkiem Piłki Nożnej, a dostawcą energii ENEBA
         </li>
-    </ul>-->
+    </ul>
 </div>
 
 <div class="fiolet1"></div>
@@ -106,15 +105,66 @@
 <div class="zglaszanie_awarii">
     <h2><center>Zgłaszanie awarii</center></h2>
     <div>
-        <!--<p><img src = "telefon.jpg" width = "30px" height = "30px">991</p>
-        <p><img src = "mail.jpg" width = "30px" height = "30px">awaria@eneba.com</p>
-        <p><img src = "sms.jpg" width = "30px" height = "30px">920391035 sms o treści "AWARIA"</p>-->
+        <ul>
+            <li>
+                <h3><b>Telefon Alarmowy</b></h3>
+                <p>991</p>
+            </li>
+            <li>
+                <h3><b>Mail Zgłoszeniowy</b></h3>
+                <p>eneba.awarie@eneba.pl</p>
+            </li>
+            <li>
+                <h3><b>Sms Alarmowy</b></h3>
+                <p>Sms o treści "awaria" na numer 902381729 </p>
+            </li>
+        </ul>
     </div>
 </div>
 
 <div class="paneldol">
-    kontakt
+
+    <div style="float:left; margin-left:20px; margin-top:50px;">
+        <ul>
+            <li>
+                <b>ENEBA-OPERATOR SA</b>
+
+            <li>
+                ul. Marynarki Polskiej 130
+                80–557 Biała Podlaska
+            </li>
+
+            <li>
+                tel.: +48 58 778 82 00
+                fax: +48 58 760 20 22
+            </li>
+        </ul>
+    </div>
+
+    <div style="float:left; margin-left:600px; margin-top:50px;">
+        <ul>
+            <li>
+                Sąd Rejonowy Gdańsk-Północ VII Wydział Gospodarczy Krajowego Rejestru Sądowego
+            </li>
+
+            <li>
+                KRS 0000033455
+            </li>
+
+            <li>
+                Rachunek bankowy: 50 1240 5400 1111 0000 4917 9295
+                prowadzony w PEKAO SA
+            </li>
+
+            <li>
+                NIP 583–000–11–90
+                Regon 190275904
+                Kapitał zakładowy 1 356 110 400 zł
+            </li>
+        </ul>
+    </div>
 </div>
+
 
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>

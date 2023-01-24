@@ -16,6 +16,280 @@ h3{
    font-size: 20px;
    }
 
+
+.control-panel {
+    display: flex;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    row-gap: 6px;
+}
+
+.col-choose-wrapper {
+    position: relative;
+    text-align: left;
+    transition: .2s filter ease-in-out;
+}
+
+.col-choose-wrapper.active {
+    filter: drop-shadow(-1px 5px 5px rgba(50, 50, 40, 0.5));
+}
+
+.col-choose-wrapper button {
+}
+
+.col-choose {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    text-align: left;
+    transition: .5s clip-path ease, .5s visibility ease;
+    clip-path: polygon(0% 0%, 100% 0%, 100% 0%, 0% 0%);
+    visibility: hidden;
+    background: #E6D6C7;
+    box-shadow: 0 0 #000;
+    padding: 8px 12px;
+    min-width: max-content;
+
+}
+
+.col-choose-wrapper.active .col-choose {
+    clip-path: polygon(0% 0%, 100% 0%, 100% 100%, 0% 100%);
+    visibility: visible;
+}
+
+.row-search {
+    display: flex;
+    align-items: center;
+    margin-left: auto;
+}
+
+.row-search > span {
+    margin-right: 8px;
+}
+
+.row-search > input {
+    width: 160px
+}
+
+.row-search select {
+    height: 100%;
+}
+
+footer {
+    font-family: 'Comfortaa', cursive;
+    text-align: center;
+    background: #333;
+    color: #fff;
+    font-size: .75em;
+    padding: 1.5em 16px 8px;
+}
+
+footer ul {
+    list-style-type: none;
+    padding-left: 0;
+}
+
+footer h4 {
+    font-size: 2.33em;
+    margin: .5em 0;
+}
+
+footer a {
+    font-size: 1.33em;
+    color: #fff;
+    transition: .2s color ease-in-out;
+}
+
+footer a:hover {
+    text-decoration: none;
+    color: #E6D6C7;
+}
+
+
+mark {
+    padding: .2em 0;
+    color: #fff;
+    background: #DB5ABA;
+}
+
+.submit-new {
+    padding: 0;
+}
+
+.submit-new button {
+    display: block;
+    width: 100%;
+    padding: 15px;
+    background: #B38356;
+    color: #fff;
+    font-width: 700;
+    text-transform: uppercase;
+}
+a.btn-primary{
+    background: #B38356;
+    border: #B38356;
+}
+a.btn-primary:hover, a.btn-primary:hover, a.btn-primary:focus, a.btn-primary:active{
+    background: #705336 !important;
+    border: #705336 !important;
+}
+a.btn-primary:active, a.btn-primary:focus{
+    box-shadow: 0 0 0 0.2rem #70533666 !important;
+}
+nav a.btn-primary{
+    color: #fff !important;
+}
+.module-links-wrapper {
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    gap: 20px;
+}
+
+.module-links-wrapper a img {
+    width: 100%;
+    aspect-ratio: 4/3;
+    object-fit: cover;
+    transition: .2s transform ease;
+}
+
+.module-links-wrapper a span {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: bold;
+    color: #fff;
+    background: linear-gradient(transparent, #000);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.module-links-wrapper a {
+    position: relative;
+    flex: 1 1 0px;
+    border-radius: 24px;
+    overflow: hidden;
+}
+
+.module-links-wrapper a:hover img {
+    transform: scale(1.25);
+}
+input:focus:invalid, input.wrong{
+    border: none;
+    outline: 2px solid red;
+}
+
+div.row {
+    font-family: 'Comfortaa', cursive;
+}
+
+div[align="center"] h1 {
+    font-family: 'Comfortaa', cursive;
+}
+
+table {
+    border: none;
+    display: block;
+    overflow-x: auto;
+    white-space: nowrap;
+    margin-left: auto;
+    margin-right: auto;
+
+    width: fit-content;
+    max-width: 100%;
+    font-family: 'Comfortaa', cursive;
+}
+
+table * {
+    border: none;
+}
+
+table th {
+    background: #B38356;
+    color: #fff;
+}
+
+table tr:nth-child(2n) {
+    background: #E6D6C7;
+}
+
+table td, table th {
+    padding: 15px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+table td {
+
+}
+
+.actions {
+    background: #62462D;
+    color: #fff;
+    position: sticky;
+    right: 0;
+    text-align: center;
+}
+
+td.actions a {
+    transition: .2s color ease-in-out;
+    color: #fff;
+}
+
+td.actions a span {
+    transition: .3s transform cubic-bezier(.4, 0, .5, 1.6);
+}
+
+td.actions a:hover {
+    text-decoration: none;
+    color: #c4c4c4;
+    transform: rotate(10deg);
+}
+
+td.actions a:hover span {
+    transform: rotate(-10deg);
+}
+
+td.actions a:nth-of-type(2):hover span {
+    transform: rotate(10deg);
+}
+
+section.add-new-employee-wrapper {
+    display: block;
+    text-align: center;
+}
+
+a.hero-link {
+    display: inline-block;
+    margin: 20px auto 40px;
+    padding: 4px 20px;
+    text-align: center;
+    color: #fff;
+    background: #B38356;
+    transition: .2s background ease-in-out;
+}
+
+a.hero-link span {
+    vertical-align: middle;
+}
+
+a.hero-link::before {
+    content: '+';
+    font-size: 2em;
+    vertical-align: middle;
+
+}
+
+a.hero-link:hover {
+    background: #705336;
+}
+
 .aktualnosci{
     /* Rectangle 24 */
 
@@ -49,6 +323,41 @@ h3{
     box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
 
     z-index: 1;
+}
+
+.fiolet4{
+    /* Rectangle 23 */
+
+    position: absolute;
+    width: 500px;
+    height: 540px;
+    left: 700px;
+    top: 250px;
+    border-radius: 5%;
+
+    background: #9066EA;
+    box-shadow: 0px 6px 12px rgba(0, 0, 0, 0.12);
+
+    z-index: 1;
+}
+
+.logowanie{
+    /* Rectangle 22 */
+
+    box-sizing: border-box;
+
+    position: absolute;
+    width: 500px;
+    height: 540px;
+    left: 689px;
+    top: 241px;
+    border-radius: 5%;
+
+    background: #FFFFFF;
+    border: 1px solid #000000;
+    box-shadow: 0px 4px 4px rgba(0, 0, 0, 0.25);
+
+    z-index: 2;
 }
 
 
@@ -151,6 +460,19 @@ h3{
     top: 1200px;
 }
 
+.logowanienapis{
+position: absolute;
+width: 176px;
+height: 60px;
+left: 845px;
+top: 300px;
+font-weight: 700;
+font-size: 36px;
+line-height: 42px;
+color:#9066EA;
+z-index:3;
+}
+
 img{
     /* image 2 */
 
@@ -162,6 +484,46 @@ img{
 }
 
 /*login button*/
+
+.loginloginbutton{
+  position: absolute;
+  display: inline-block;
+  border-radius: 4px;
+  background-color: #9066EA;
+  border: none;
+  color: #FFFFFF;
+  text-align: center;
+  width: 300px;
+  padding: 20px;
+  transition: all 0.5s;
+  cursor: pointer;
+  margin: 5px;
+}
+
+.loginloginbutton span {
+  cursor: pointer;
+  display: inline-block;
+  position: relative;
+  transition: 0.5s;
+}
+
+.loginloginbutton span:after {
+  content: '\00bb';
+  position: absolute;
+  opacity: 0;
+  top: 0;
+  right: -20px;
+  transition: 0.5s;
+}
+
+.loginloginbutton:hover span {
+  padding-right: 25px;
+}
+
+.loginloginbutton:hover span:after {
+  opacity: 1;
+  right: 0;
+}
 
 .loginbutton {
   position: absolute;
@@ -210,7 +572,7 @@ img{
 
 .edytujbutton {
   position: absolute;
-  left: 1400px;
+  left: 1350px;
   top: 15px;
   display: inline-block;
   border-radius: 4px;
@@ -221,6 +583,7 @@ img{
   font-size: 28px;
   padding: 20px;
   width: 250px;
+  height: 75px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -255,7 +618,7 @@ img{
 
 .wylogujbutton {
   position: absolute;
-  left: 1670px;
+  left: 1630px;
   top: 15px;
   display: inline-block;
   border-radius: 4px;
@@ -266,6 +629,7 @@ img{
   font-size: 28px;
   padding: 20px;
   width: 200px;
+  height: 75px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
@@ -299,8 +663,10 @@ img{
 /*main button*/
 
 .mainbutton {
+  font-family: Verdana,Arial,sans-serif;
+  font-style: normal;
   position: absolute;
-  left: 1400px;
+  left: 1350px;
   top: 15px;
   display: inline-block;
   border-radius: 4px;
@@ -310,7 +676,8 @@ img{
   text-align: center;
   font-size: 28px;
   padding: 20px;
-  width: 250px;
+  width: 270px;
+  height: 75px;
   transition: all 0.5s;
   cursor: pointer;
   margin: 5px;
