@@ -9,74 +9,97 @@
 
 </head>
 <body>
+<style>
+  td{
+  padding:5px 10px;
+  background:#B9B8D3;
+  color:white;
+  }
+
+  td:first-of-type{
+  background:#5F4BB6;
+  color:white;
+  }
+
+  input{
+  width: 100%;
+  }
+
+
+</style>
 <!-- Navigation -->
-<nav th:replace="fragments/nav :: nav('My-data')"></nav>
+<!--nav th:replace="fragments/nav :: nav('My-data')"></nav-->
 <div class="container">
   <div class="row">
     <div class="col-md-12 mt-5">
       <div align="center">
-        <h1 sec:authorize="hasRole('ADMIN')">Edytuj pracownika</h1>
+        <!--h1 sec:authorize="hasRole('ADMIN')">Edytuj klienta</h1-->
         <h1 sec:authorize="hasRole('USER')">Edytuj swoje dane</h1>
 
         <form action="#" th:action="@{/klienci/update}" th:object="${klient}" method="post">
           <table>
             <tr>
-              <th colspan="2">
-                <h3>Dane osobowe:</h3>
-              </th>
-            </tr>
-            <tr>
               <td>Numer klienta:</td>
-              <td><input type="number" th:field="*{klient.getId_klienta()}" readonly="readonly"></td>
+              <td><input type="number" th:field="*{id_klienta}" readonly="readonly"></td>
             </tr>
             <tr>
               <td>Imie:</td>
-              <td><input type="text" th:field="*{klient.ime}" required></td>
+              <td><input type="text" th:field="*{imie}" required></td>
             </tr>
             <tr>
               <td>Nazwisko:</td>
-              <td><input type="text" th:field="*{klient.nazwisko}" required></td>
+              <td><input type="text" th:field="*{nazwisko}" required></td>
             </tr>
             <tr>
               <td>Nr_telefonu</td>
-              <td><input type="text" th:field="*{klient.nr_telefonu}" required></td>
+              <td><input type="text" th:field="*{nr_telefonu}" required></td>
             </tr>
             <tr>
               <td>Email</td>
-              <td><input type="text" th:field="*{klient.Email}" required></td>
+              <td><input type="text" th:field="*{Email}" required></td>
             </tr>
             <tr>
               <td>Zuzycie pradu</td>
-              <td><input type="number" th:field="*{kient.zuzycie_pradu}" required></td>
+              <td><input type="number" th:field="*{zuzycie_pradu}" readonly></td>
             </tr>
             <tr>
               <td>Data zawarcia umowy</td>
-              <td><input type="date" th:field="*{klient.data_zawarcia_umowy}" required></td>
+              <td><input type="date" th:field="*{data_zawarcia_umowy}" required></td>
             </tr>
             <tr>
               <td>Data zakonczenia umowy</td>
-              <td><input type="date" th:field="*{klient.data_zakonczenia_umowy}" readonly></td>
+              <td><input type="date" th:fiel`d="*{data_zakonczenia_umowy}" readonly></td>
             </tr>
             <tr>
               <td>Miasto</td>
-              <td><input type="text" th:field="*{klient.adres.miasto}" required></td>
+              <td><input type="text" th:field="*{adres.miasto}" required></td>
             </tr>
             <tr>
               <td>Ulica</td>
-              <td><input type="text" th:field="*{klient.adres.ulica}" required></td>
+              <td><input type="text" th:field="*{adres.ulica}" required></td>
             </tr>
             <tr>
               <td>Nr. lokalu</td>
-              <td><input type="number" th:field="*{klient.adres.nr_lokalu}" required></td>
+              <td><input type="number" th:field="*{adres.nr_lokalu}" required></td>
             </tr>
-            <tr>
+            <!--tr>
               <td>Id poczty</td>
-              <td><input type="number" th:field="*{klient.adres.id_poczty}" required></td>
+              <td><input type="number" th:field="*{adres.id_poczty}" required></td>
+            </tr-->
+
+            <tr>
+              <td>Poczta</td>
+              <td><input type="number" th:field="*{poczta.poczta}" required></td>
             </tr>
 
             <tr>
-              <td colspan="2" class="submit-new">
-                <button type="submit">zapisz</button>
+              <td>Kod Pocztowy</td>
+              <td><input type="number" th:field="*{poczta.kod_pocztowy}" required></td>
+            </tr>
+
+            <tr>
+              <td colspan="2" class="submit-new" align="center">
+                <button type="submit">Zapisz</button>
               </td>
             </tr>
           </table>
@@ -106,11 +129,10 @@
   </div>
 </div>
 
-<script th:src="@{/js/pesel_handler.js}"></script>
+
 <script th:src="@{/webjars/jquery/jquery.min.js}"></script>
 <script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
 <script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
-<script th:src="@{/js/table_headers.js}"></script>
 
 </body>
 </html>

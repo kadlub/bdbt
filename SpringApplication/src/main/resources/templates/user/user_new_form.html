@@ -1,0 +1,136 @@
+<!DOCTYPE HTML>
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="UTF-8"/>
+    <title>Dodawanie klienta</title>
+
+    <link th:rel="stylesheet" th:href="@{/webjars/bootstrap/4.0.0-2/css/bootstrap.min.css} "/>
+    <link th:rel="stylesheet" th:href="@{/css/main.css} "/>
+
+</head>
+<body>
+<style>
+  td{
+  padding:5px 10px;
+  background:#B9B8D3;
+  color:white;
+  }
+
+  td:first-of-type{
+  background:#5F4BB6;
+  color:white;
+  }
+
+  input{
+  width: 100%;
+  }
+
+
+</style>
+<!-- Navigation -->
+<!--nav th:replace="fragments/nav :: nav('My-data')"></nav-->
+<div class="container">
+    <div class="row">
+        <div class="col-md-12 mt-5">
+            <div align="center">
+                <!--h1 sec:authorize="hasRole('ADMIN')">Edytuj klienta</h1-->
+                <h1 sec:authorize="hasRole('ADMIN')">Dodaj klienta</h1>
+
+                <form action="#" th:action="@{/klienci/save}" th:object="${newKlienci}" method="post">
+                    <table>
+                        <tr>
+                            <td>Imie:</td>
+                            <td><input type="text" th:field="*{imie}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Nazwisko:</td>
+                            <td><input type="text" th:field="*{nazwisko}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Nr_telefonu</td>
+                            <td><input type="text" th:field="*{nr_telefonu}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Email</td>
+                            <td><input type="text" th:field="*{Email}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Zuzycie pradu</td>
+                            <td><input type="number" th:field="*{zuzycie_pradu}" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Data zawarcia umowy</td>
+                            <td><input type="date" th:field="*{data_zawarcia_umowy}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Data zakonczenia umowy</td>
+                            <td><input type="date" th:fiel`d="*{data_zakonczenia_umowy}" readonly></td>
+                        </tr>
+                        <tr>
+                            <td>Miasto</td>
+                            <td><input type="text" th:field="*{adres.miasto}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Ulica</td>
+                            <td><input type="text" th:field="*{adres.ulica}" required></td>
+                        </tr>
+                        <tr>
+                            <td>Nr. lokalu</td>
+                            <td><input type="number" th:field="*{adres.nr_lokalu}" required></td>
+                        </tr>
+                        <!--tr>
+                             <td>Id poczty</td>
+                             <td><input type="number" th:field="*{adres.id_poczty}" required></td>
+                             </tr-->
+
+                        <tr>
+                            <td>Poczta</td>
+                            <td><input type="number" th:field="*{poczta.poczta}" required></td>
+                        </tr>
+
+                        <tr>
+                            <td>Kod Pocztowy</td>
+                            <td><input type="number" th:field="*{poczta.kod_pocztowy}" required></td>
+                        </tr>
+
+                        <tr>
+                            <td colspan="2" class="submit-new" align="center">
+                                <button type="submit">Zapisz</button>
+                            </td>
+                        </tr>
+                    </table>
+                    <input type="hidden" th:field="*{id_klienta}" required>
+                    <input type="hidden" th:field="*{id_adresu}" required>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="modal fade" id="deletePrevention" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLongTitle">Czy na pewno chcesz usunąć?</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <p>Czy jesteś pewny, że chcesz usunąć ten rekord?</p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-danger">Tak</button>
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Nie</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script th:src="@{/webjars/jquery/jquery.min.js}"></script>
+<script th:src="@{/webjars/popper.js/umd/popper.min.js}"></script>
+<script th:src="@{/webjars/bootstrap/js/bootstrap.min.js}"></script>
+
+</body>
+</html>

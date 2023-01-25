@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<html lang="en" xmlns:th="http://www.thymeleaf.org" xmlns:sec="https://www.thymeleaf.org/thymeleaf-extras-springsecurity5">
 <head>
     <meta charset="UTF-8">
     <title>User</title>
@@ -25,6 +25,7 @@
 <div align="center" style="margin-top: 100px;">
     <h1>Klienci</h1>
 
+
     <table border = "1" cellpadding = "10">
 
         <thead>
@@ -41,7 +42,9 @@
                 <th>Miasto</th>
                 <th>Ulica</th>
                 <th>Nr. lokalu</th>
-                <th>Id poczty</th>
+                <!--th>Id poczty</th-->
+                <th>Poczta</th>
+                <th>Kod pocztowy</th>
             </tr>
         </thead>
 
@@ -59,12 +62,14 @@
                 <td th:text="${klient.adres.miasto}">Miasto</td>
                 <td th:text="${klient.adres.ulica}">Ulica</td>
                 <td th:text="${klient.adres.nr_lokalu}">Nr.lokalu</td>
-                <td th:text="${klient.adres.id_poczty}">Id poczty</td>
+                <!--td th:text="${klient.adres.id_poczty}">Id poczty</td-->
+                <td th:text="${klient.poczta.poczta}">Poczta</td>
+                <td th:text="${klient.poczta.kod_pocztowy}">Kod Pocztowy</td>
                 <td class="actions">
-                    <a th:href="@{'/klient/edit/' + ${klient.getId_klienta}}">
+                    <a th:href="@{'/klienci/edit/' + ${klient.getId_klienta}}">
                         <span class="material-symbols-outlined">edit</span>
                     </a>
-                    <a th:href="@{'/klient/delete/' + ${klient.getId_klienta}}">
+                    <a th:href="@{'/klienci/delete/' + ${klient.getId_klienta}}">
                         <span class="material-symbols-outlined">delete</span>
                     </a>
                 </td>
@@ -74,6 +79,8 @@
         </tbody>
 
     </table>
+
+    <a th:href="@{/klienci/new}">Dodaj nowego klienta</a>
 
 </div>
 

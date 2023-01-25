@@ -1,5 +1,7 @@
 package bdbt_bada_project.SpringApplication;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import java.util.Date;
 
 public class Klienci {
@@ -10,10 +12,13 @@ public class Klienci {
     private String nr_telefonu;
     private String email;
     private float zuzycie_pradu;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_zawarcia_umowy;
+    @DateTimeFormat(pattern = "yyyy-MM-dd")
     private Date data_zakonczenia_umowy;
     private int id_adresu;
     private Adresy adres;
+    private Poczty poczta;
 
     public Klienci(){
 
@@ -32,6 +37,7 @@ public class Klienci {
         this.data_zakonczenia_umowy = data_zakonczenia_umowy;
         this.id_adresu = id_adresu;
         this.adres = adres;
+        this.poczta = poczta;
     }
 
     public void setAdres(Adresy adres){
@@ -105,7 +111,15 @@ public class Klienci {
     }
 
     public int getId_adresu() {
-        return id_adresu;
+        return adres.getId_adresu();
+    }
+
+    public Poczty getPoczta(){
+        return poczta;
+    }
+
+    public void setPoczta(Poczty poczta){
+        this.poczta=poczta;
     }
 
     public void setId_adresu(int id_adresu) {

@@ -20,12 +20,13 @@ public class KlienciDAO {
         this.jdbcTemplate = jdbcTemplate;
     }
     public List<Klienci> list(){
-        String sql = "SELECT * FROM KLIENCI2 NATURAL JOIN ADRESY NATURAL JOIN (select id_adresu, miasto, ulica, nr_lokalu, id_poczty FROM ADRESY) ORDER BY ID_KLIENTA";
+        String sql = "SELECT * FROM KLIENCI2 NATURAL JOIN ADRESY NATURAL JOIN (select id_adresu, miasto, ulica, nr_lokalu, id_poczty, kod_pocztowy, poczta FROM ADRESY NATURAL JOIN POCZTY) ORDER BY ID_KLIENTA";
 
         List<Klienci> listKlienci = jdbcTemplate.query(sql,
                 (rs, arg1) ->{
                     Klienci klient = new Klienci();
                     Adresy adres = new Adresy();
+                    Poczty poczta = new Poczty();
 
 
                     klient.setId_klienta(rs.getInt("id_klienta"));
@@ -45,8 +46,15 @@ public class KlienciDAO {
                     adres.setNr_lokalu(rs.getInt("nr_lokalu"));
                     adres.setId_poczty(rs.getInt("id_poczty"));
 
+                    poczta.setId_poczty(rs.getInt("id_poczty"));
+                    poczta.setPoczta(rs.getString("poczta"));
+                    poczta.setKod_pocztowy(rs.getString("kod_pocztowy"));
+
+
+
 
                     klient.setAdres(adres);
+                    klient.setPoczta(poczta);
                    return klient; 
                 });
 
@@ -88,6 +96,8 @@ public class KlienciDAO {
                     adres.setUlica(rs.getString("ulica"));
                     adres.setNr_lokalu(rs.getInt("nr_lokalu"));
                     adres.setId_poczty(rs.getInt("id_poczty"));
+
+
 
                     return newKlient;
                 });

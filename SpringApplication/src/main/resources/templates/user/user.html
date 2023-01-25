@@ -17,11 +17,7 @@
 
 <div>
     <a th:href = "@{/index}"><button class="wylogujbutton" style="vertical-align:middle"><span>Wyloguj</span></button></a>
-    <a th:href = "@{/user/user_edycja}"><button class="edytujbutton" style="vertical-align:middle"><span>Moje Dane</span></button></a>
-    <li class="nav-item">
-        <a class="nav-link" th:inline="text" style="color:#9066EA;">Jesteś zalogowany jako<b
-                style="text-transform:capitalize">[[${#httpServletRequest.remoteUser}]]</b></a>
-    </li>
+    <a th:href = "@{'/klienci/edit/'+${#authentication.name}}"><button class="edytujbutton" style="vertical-align:middle"><span>Moje Dane</span></button></a>
 </div>
 
 <!--image slider start-->

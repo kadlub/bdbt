@@ -211,12 +211,12 @@ table * {
 }
 
 table th {
-    background: #B38356;
+    background: #9066EA;
     color: #fff;
 }
 
 table tr:nth-child(2n) {
-    background: #E6D6C7;
+    background: #BEA5F3;
 }
 
 table td, table th {
@@ -230,7 +230,7 @@ table td {
 }
 
 .actions {
-    background: #62462D;
+    background: #9066EA;
     color: #fff;
     position: sticky;
     right: 0;

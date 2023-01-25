@@ -49,18 +49,18 @@ public class AppController implements WebMvcConfigurer {
 
             model.addAttribute("newKlienci", newKlient);
 
-            return "user/user_edycja_form";
+            return "user/user_new_form";
         }
 
         @RequestMapping(value = "/klienci/save", method = RequestMethod.POST)
         public String saveKlienci(@ModelAttribute("newKlient") Klienci newKlient) {
             daoKlient.save(newKlient);
 
-            return "redirect:/klienci";
+            return "redirect:/user/user_edycja";
         }
 
         @RequestMapping(value = "/klienci/edit/{id}")
-        public ModelAndView showEditEmployeeForm(@PathVariable(name = "id") int id) {
+        public ModelAndView showEditKlienciForm(@PathVariable(name = "id") int id) {
             ModelAndView mav = new ModelAndView("user/user_edycja_form");
             List<Klienci> positionList = daoKlient.list();
             Klienci newKlienci = daoKlient.get(id);
@@ -74,14 +74,14 @@ public class AppController implements WebMvcConfigurer {
         public String updateKlienci(@ModelAttribute("newKlienci") Klienci newKlienci) {
             daoKlient.update(newKlienci);
 
-            return "redirect:/klienci";
+            return "redirect:/user/user_edycja";
         }
 
         @RequestMapping(value = "/klienci/delete/{id}")
         public String deleteEmployee(@PathVariable(name = "id") int id) {
             daoKlient.delete(id);
 
-            return "redirect:/klienci";
+            return "redirect:/user/user_edycja";
         }
 
         @RequestMapping
