@@ -18,7 +18,7 @@ public class Klienci {
     private Date data_zakonczenia_umowy;
     private int id_adresu;
     private Adresy adres;
-    private Poczty poczta;
+    //private Poczty poczta;
 
     public Klienci(){
 
@@ -37,7 +37,7 @@ public class Klienci {
         this.data_zakonczenia_umowy = data_zakonczenia_umowy;
         this.id_adresu = id_adresu;
         this.adres = adres;
-        this.poczta = poczta;
+        //this.poczta = poczta;
     }
 
     public void setAdres(Adresy adres){
@@ -114,13 +114,13 @@ public class Klienci {
         return adres.getId_adresu();
     }
 
-    public Poczty getPoczta(){
+   /* public Poczty getPoczta(){
         return poczta;
     }
 
     public void setPoczta(Poczty poczta){
         this.poczta=poczta;
-    }
+    }*/
 
     public void setId_adresu(int id_adresu) {
         this.id_adresu = id_adresu;

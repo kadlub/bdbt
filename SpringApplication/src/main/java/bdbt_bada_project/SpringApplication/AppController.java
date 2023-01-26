@@ -71,8 +71,8 @@ public class AppController implements WebMvcConfigurer {
         }
 
         @RequestMapping(value = "/klienci/update", method = RequestMethod.POST)
-        public String updateKlienci(@ModelAttribute("newKlienci") Klienci newKlienci) {
-            daoKlient.update(newKlienci);
+        public String updateKlienci(@ModelAttribute("newKlienci") Klienci newKlient) {
+            daoKlient.update(newKlient);
 
             return "redirect:/user/user_edycja";
         }

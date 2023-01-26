@@ -19,7 +19,7 @@
 
 <div>
     <a th:href = "@{/index}"><button class="wylogujbutton" style="vertical-align:middle"><span>Wyloguj</span></button></a>
-    <a th:href = "@{/user/user}"><button class="mainbutton" style="vertical-align:middle"><span>Strona główna</span></button></a>
+    <a th:href = "@{/main_admin}"><button class="mainbutton" style="vertical-align:middle"><span>Strona główna</span></button></a>
 </div>
 
 <div align="center" style="margin-top: 100px;">
@@ -42,9 +42,9 @@
                 <th>Miasto</th>
                 <th>Ulica</th>
                 <th>Nr. lokalu</th>
-                <!--th>Id poczty</th-->
-                <th>Poczta</th>
-                <th>Kod pocztowy</th>
+                <th>Id poczty</th>
+                <!--th>Poczta</th>
+                <th>Kod pocztowy</th-->
             </tr>
         </thead>
 
@@ -62,9 +62,9 @@
                 <td th:text="${klient.adres.miasto}">Miasto</td>
                 <td th:text="${klient.adres.ulica}">Ulica</td>
                 <td th:text="${klient.adres.nr_lokalu}">Nr.lokalu</td>
-                <!--td th:text="${klient.adres.id_poczty}">Id poczty</td-->
-                <td th:text="${klient.poczta.poczta}">Poczta</td>
-                <td th:text="${klient.poczta.kod_pocztowy}">Kod Pocztowy</td>
+                <td th:text="${klient.adres.id_poczty}">Id poczty</td>
+                <!--td th:text="${klient.poczta.poczta}">Poczta</td>
+                <td th:text="${klient.poczta.kod_pocztowy}">Kod Pocztowy</td-->
                 <td class="actions">
                     <a th:href="@{'/klienci/edit/' + ${klient.getId_klienta}}">
                         <span class="material-symbols-outlined">edit</span>

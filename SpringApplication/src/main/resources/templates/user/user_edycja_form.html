@@ -71,6 +71,10 @@
               <td><input type="date" th:fiel`d="*{data_zakonczenia_umowy}" readonly></td>
             </tr>
             <tr>
+              <td>Id adresu</td>
+              <input type="hidden" th:field="*{id_adresu}" required>
+            </tr>
+            <tr>
               <td>Miasto</td>
               <td><input type="text" th:field="*{adres.miasto}" required></td>
             </tr>
@@ -82,20 +86,20 @@
               <td>Nr. lokalu</td>
               <td><input type="number" th:field="*{adres.nr_lokalu}" required></td>
             </tr>
-            <!--tr>
+            <tr>
               <td>Id poczty</td>
               <td><input type="number" th:field="*{adres.id_poczty}" required></td>
-            </tr-->
+            </tr>
 
-            <tr>
+            <!--tr>
               <td>Poczta</td>
-              <td><input type="number" th:field="*{poczta.poczta}" required></td>
+              <td><input type="text" th:field="*{poczta.poczta}" required></td>
             </tr>
 
             <tr>
               <td>Kod Pocztowy</td>
-              <td><input type="number" th:field="*{poczta.kod_pocztowy}" required></td>
-            </tr>
+              <td><input type="text" th:field="*{poczta.kod_pocztowy}" required></td>
+            </tr-->
 
             <tr>
               <td colspan="2" class="submit-new" align="center">
@@ -103,6 +107,8 @@
               </td>
             </tr>
           </table>
+          <input type="hidden" th:field="*{id_adresu}" required>
+
         </form>
       </div>
     </div>
